@@ -1,0 +1,72 @@
+{
+  "name": "guru-scaffold",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "vivianeflowt <vivianeflowt@gmail.com>",
+  "keywords": [],
+  "bin": {
+    "nx": "dist/index.js"
+  },
+  "main": "dist/lib/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "*.md"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "commit": "cz",
+    "format": "prettier --write ./src/**/*.ts",
+    "release": "release-it --config scripts/.release-it.json --verbose --dry-run",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "syncpack format",
+      "eslint",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@types/charm": "^1.0.3",
+    "@types/jest": "^28.1.4",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.0.3",
+    "@types/prettier": "^2.6.3",
+    "@types/shelljs": "^0.8.11",
+    "auto-changelog": "^2.4.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^28.1.2",
+    "jest-extended": "^2.0.0",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "charm": "^1.0.2",
+    "commander": "^9.3.0",
+    "conf": "^10.1.2",
+    "cosmiconfig": "^7.0.1",
+    "lodash": "^4.17.21",
+    "shelljs": "^0.8.5"
+  }
+}
